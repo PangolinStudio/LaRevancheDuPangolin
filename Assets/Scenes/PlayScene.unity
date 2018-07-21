@@ -371,7 +371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad7d1ce0b0af55478684eb698a91ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 617034661}
+  target: {fileID: 1410344586}
   smoothspeed: 0.5
   offset: {x: 2, y: 0.75, z: -1}
 --- !u!20 &519420031
