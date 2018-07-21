@@ -48,7 +48,7 @@ public class Enemy : Entity {
 	}
 
 	// Permet de dessiner la boite rouge pour voir la zone de détection
-	protected void OnDrawGizmosSelected()
+	protected override void OnDrawGizmosSelected()
 	{
 		base.OnDrawGizmosSelected();
 

@@ -53,7 +53,7 @@ public class Entity : MonoBehaviour {
 	}
 
 	// Permet de dessiner la boite rouge pour voir la zone de détection
-	protected void OnDrawGizmosSelected()
+	protected virtual void OnDrawGizmosSelected()
 	{
 		top_left = new Vector2(transform.position.x + groundDetection.x, transform.position.y + groundDetection.y);
 		bottom_right = top_left + new Vector2(groundDetection.width, groundDetection.height);
