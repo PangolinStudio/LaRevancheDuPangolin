@@ -7,6 +7,7 @@ public class Enemy : Entity {
 	public Rect wallDectection;
 	public bool isTouchingWall = false;
 	public Transform target;
+	public float detectionRadius = 10;
 
 	private FSM brain;
 	private Vector2 top_left_wall;
@@ -87,7 +88,12 @@ public class Enemy : Entity {
 
 	public void Chase()
 	{
-		
+		float distance = Vector2.Distance(transform.position, target.position);
+
+		if (distance > detectionRadius)
+		{
+			brain.Pop();
+		}
 	}
 
 	public void Flee()
@@ -101,7 +107,7 @@ public class Enemy : Entity {
 		float distance = Vector2.Distance(transform.position, target.position);
 
 		// Ici réglé à 10 cases
-		if (distance < 32 * 10)
+		if (distance < detectionRadius)
 		{
 			// Si le joueur est dans le champ de vision de l'ennemi
 			Vector2 directionToPlayer = target.position - transform.position;

@@ -5,10 +5,17 @@ using UnityEngine;
 public class Player : Entity {
 
 	private float jumpCoolDown = 0.5f;
-	
+
 	// Update is called once per frame
 	void FixedUpdate () {
 		Movement();
+
+		if (Mathf.Abs(rb.velocity.x) > 0.1f)
+		{
+			GetComponent<Animator>().SetBool("moving", true);
+		} else {
+			GetComponent<Animator>().SetBool("moving", false);
+		}
 
 		jumpCoolDown += Time.deltaTime;
 	}
