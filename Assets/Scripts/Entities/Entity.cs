@@ -8,10 +8,11 @@ public class Entity : MonoBehaviour {
 	public float speed;
 	public LayerMask groundLayer;
 	public Rect groundDetection;
+	public bool isGrounded = false;
+	public Vector2 forwardvector;
 
 	protected Rigidbody2D rb;
 	protected bool isFacingRight = true;
-	public bool isGrounded = false;
 
 	private Vector2 top_left;
 	private Vector2 bottom_right;
@@ -19,6 +20,7 @@ public class Entity : MonoBehaviour {
 	// On fait les références
 	void Awake () {
 		rb = GetComponent<Rigidbody2D>();
+		forwardvector = new Vector2(1, 0);
 		// On récupère les points de la zone de détection du sol
 	}
 	// Update is called once per frame
@@ -37,19 +39,25 @@ public class Entity : MonoBehaviour {
 		{
 			isFacingRight = !isFacingRight;
 		}
-		else if (rb.velocity.x > 0)
+		else if (rb.velocity.x > 0.1f)
 		{
 			// On va a droite
 			isFacingRight = true;
-		} else if (rb.velocity.x < 0) {
+		} else if (rb.velocity.x < -0.1f) {
 			// On va a gauche
 			isFacingRight = false;
 		}
 
 		if (isFacingRight)
+		{
 			transform.localRotation = Quaternion.Euler(0, 0, 0);
+			forwardvector = new Vector2(1, 0);
+		}
 		else
+		{
 			transform.localRotation = Quaternion.Euler(0, 180, 0);
+			forwardvector = new Vector2(-1, 0);
+		}
 	}
 
 	// Permet de dessiner la boite rouge pour voir la zone de détection

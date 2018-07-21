@@ -3415,12 +3415,12 @@ GameObject:
   m_Component:
   - component: {fileID: 617034661}
   - component: {fileID: 617034660}
-  - component: {fileID: 617034659}
   - component: {fileID: 617034658}
   - component: {fileID: 617034657}
-  m_Layer: 0
+  - component: {fileID: 617034659}
+  m_Layer: 10
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3493,13 +3493,15 @@ MonoBehaviour:
     width: 1
     height: 0.5
   isGrounded: 0
+  forwardvector: {x: 0, y: 0}
   wallDectection:
     serializedVersion: 2
-    x: 0.14
+    x: 0.4
     y: 0
-    width: 0.8
+    width: 0.6
     height: 0.85
   isTouchingWall: 0
+  target: {fileID: 1410344586}
 --- !u!212 &617034660
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3801,7 +3803,7 @@ GameObject:
   - component: {fileID: 1410344588}
   - component: {fileID: 1410344587}
   - component: {fileID: 1410344589}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3827,10 +3829,11 @@ MonoBehaviour:
   groundDetection:
     serializedVersion: 2
     x: 0
-    y: -0.21
-    width: 1.5
-    height: 1.83
+    y: -0.3
+    width: 1.25
+    height: 1.26
   isGrounded: 0
+  forwardvector: {x: 0, y: 0}
 --- !u!212 &1410344585
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3946,11 +3949,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1424158b42d91334d910ed68ee1f6d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 5
-  jumpTime: 0.12
-  fallMultiplier: 2
+  jumpForce: 6
+  jumpTime: 0.2
+  fallMultiplier: 1.5
   ySpeedLimit: 3
-  stoppedJumping: 0
+  stoppedJumping: 1
 --- !u!1 &1854797017
 GameObject:
   m_ObjectHideFlags: 0
