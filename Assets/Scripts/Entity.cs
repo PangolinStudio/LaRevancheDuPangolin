@@ -6,7 +6,6 @@ public class Entity : MonoBehaviour {
 
 	public float health;
 	public float speed;
-	public float jumpForce;
 	public LayerMask groundLayer;
 	public Rect groundDetection;
 
