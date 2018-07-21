@@ -29,9 +29,10 @@ public class Player : Entity {
 			rb.velocity = new Vector2(2 * acc * speed * Time.deltaTime, rb.velocity.y);
 		}
 
-		
+		/*
+
 		// Si le joueur tente de sauter
-		if (SimpleInput.GetKeyDown(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.Space))
 		{
 			// Si le joueur à assew attendu entre 2 sauts
 			if (jumpCoolDown > jumpTime)
@@ -59,5 +60,6 @@ public class Player : Entity {
 				}
 			}
 		}
+        */
 	}
 }

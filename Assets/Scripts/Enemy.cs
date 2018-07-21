@@ -33,7 +33,6 @@ public class Enemy : Entity {
 			Flip(true);
 
 		Movement();
-		Debug.Log(rb.velocity);
 	}
 
 	void Movement()
