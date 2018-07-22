@@ -33,9 +33,8 @@ public class Jump : MonoBehaviour
 
     void FixedUpdate() //Dans FixedUpdate pour jouer sur la physique
     {
-
         //Quand on appuie sur la barre espace ...
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (SimpleInput.GetKeyDown(KeyCode.Space))
         {
             //Et qu'on est au sol ...
             if (ent.isGrounded)
@@ -46,8 +45,8 @@ public class Jump : MonoBehaviour
             }
         }
 
-        //Si on reste appuyer...
-        if ((Input.GetKey(KeyCode.Space)) && !stoppedJumping)
+        //Si on reste appuyé...
+        if ((SimpleInput.GetKey(KeyCode.Space)) && !stoppedJumping)
         {
             //et que le compteur n'a pas atteint 0...
             if (jumpTimeCounter > 0)
@@ -60,7 +59,7 @@ public class Jump : MonoBehaviour
 
 
         //Quand on lache le bouton...
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (SimpleInput.GetKeyUp(KeyCode.Space))
         {
             //On arrete de sauter et on réinitialise le comptuer.
             jumpTimeCounter = 0;
