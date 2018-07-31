@@ -1,14 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : Entity {
 
 	private float jumpCoolDown = 0.5f;
 	private Animator anim;
 
+	public Text acc_t;
+	public float acc_threshold;
+
 	void Start(){
 		anim = GetComponent<Animator>();
+		acc_t.text = "acc : 0";
 	}
 
 	// Update is called once per frame
@@ -35,7 +40,18 @@ public class Player : Entity {
 			rb.velocity = new Vector2(move * speed * Time.deltaTime, rb.velocity.y);
 		} else {
 			// On prend le relai avec l'inclinaison du tel
-			rb.velocity = new Vector2(2 * acc * speed * Time.deltaTime, rb.velocity.y);
+			if (acc > acc_threshold)
+			{
+				rb.velocity = new Vector2(2 * speed * Time.deltaTime, rb.velocity.y);
+			}
+			else if (acc < -acc_threshold)
+			{
+				rb.velocity = new Vector2(-2 * speed * Time.deltaTime, rb.velocity.y);
+			}
+			else {
+				rb.velocity = new Vector2(2 * acc * speed * Time.deltaTime, rb.velocity.y);
+			}
+			acc_t.text = "acc : " + acc.ToString();
 		}
 	}
 }
