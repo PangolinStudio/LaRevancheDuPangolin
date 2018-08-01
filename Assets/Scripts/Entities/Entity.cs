@@ -11,6 +11,8 @@ public class Entity : MonoBehaviour {
 	public bool isGrounded = false;
 	public Vector2 forwardvector;
 	public bool isAlive = true;
+	public GameObject impactEffect;
+	public GameObject deathEffect;
 
 	protected Rigidbody2D rb;
 	protected bool isFacingRight = true;
@@ -25,7 +27,7 @@ public class Entity : MonoBehaviour {
 		// On récupère les points de la zone de détection du sol
 	}
 	// Update is called once per frame
-	void Update () {
+	protected void Update () {
 		Flip();
 
 		// On vérifie si l'entité touche le sol
@@ -65,6 +67,7 @@ public class Entity : MonoBehaviour {
 		health -= damage;
 		if (health <= 0)
 		{
+			Instantiate(deathEffect, transform.position, transform.rotation);
 			isAlive = false;
 		}
 	}

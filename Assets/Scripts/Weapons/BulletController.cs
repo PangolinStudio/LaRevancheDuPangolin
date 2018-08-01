@@ -21,6 +21,10 @@ public class BulletController : MonoBehaviour {
 			}
 			ent.TakeDamage(damage);
 			gameObject.SetActive(false);
+
+			Quaternion angle = transform.rotation;
+			angle.z *= -1;
+			Instantiate(ent.impactEffect, transform.position, angle);
 		}
 		else 
 		{

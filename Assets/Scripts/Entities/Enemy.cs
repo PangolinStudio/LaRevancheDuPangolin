@@ -7,12 +7,15 @@ public class Enemy : Entity {
 	public Rect wallDectection;
 	public bool isTouchingWall = false;
 	public Transform target;
-	public float detectionRadius = 10;
+	public float detectionRadius = 2;
+	public float jumpForce = 5f;
 
 	private FSM brain;
 	private Vector2 top_left_wall;
 	private Vector2 bottom_right_wall;
 	private float idleTime;
+	private float init_health;
+	private float fleeDirection;
 
 	// Use this for initialization
 	void Start () {
@@ -20,10 +23,13 @@ public class Enemy : Entity {
 		brain.Add(Wander);
 
 		idleTime = -1;
+		init_health = health;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		base.Update();
+
 		if (isFacingRight)
 		{
 			top_left_wall = new Vector2(transform.position.x + wallDectection.x, transform.position.y + wallDectection.y);
@@ -97,11 +103,50 @@ public class Enemy : Entity {
 		{
 			brain.Pop();
 		}
+		else if (health <= 20/100 * init_health)
+		{
+			brain.Pop();
+			fleeDirection = Mathf.Sign(transform.position.x - target.position.x);
+			brain.Add(Flee);
+		}
+
+		if (transform.position.x > target.position.x)
+		{
+			isFacingRight = false;
+		}
+		else {
+			isFacingRight = true;
+		}
+
+		// Si le joueur est à la bonne hauteur
+		if (Mathf.Abs(target.position.y - transform.position.y) < 2)
+		{
+			GetComponentInChildren<Gun>().Shoot();
+		}
+		// Sinon si le joueur est au dessus
+		else if (target.position.y >= transform.position.y)
+		{
+			Jump();
+		}
+	}
+
+	public void Jump()
+	{
+		if (isGrounded)
+		{
+			rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+		}
 	}
 
 	public void Flee()
 	{
+		// Si l'ennemi est bloqué
+		if (Mathf.Abs(rb.velocity.x) < 0.2f)
+		{
+			fleeDirection *= -1;
+		}
 
+		rb.velocity = new Vector2(fleeDirection * speed * Time.deltaTime, rb.velocity.y);
 	}
 
 	private bool CanPlayerBeSeen()
