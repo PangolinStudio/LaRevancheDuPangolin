@@ -52,5 +52,7 @@ public class Gun : BaseWeapon {
 		float angle = Random.Range(-spread, spread);
 		Vector2 dir = new Vector2(parent.forwardvector.x * Mathf.Cos(angle * Mathf.PI / 180), Mathf.Sin(angle * Mathf.PI / 180));
 		bullet.GetComponent<Rigidbody2D>().velocity = dir * bulletSpeed;
+
+		CameraShake.Shake(0.05f, 0.1f);
 	}
 }

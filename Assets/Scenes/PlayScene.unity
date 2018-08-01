@@ -273,7 +273,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 09d1554d19f277049a595724e796736c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -351,7 +351,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 15
   m_Sprite: {fileID: 21300000, guid: 0a3af0d16fb2b904fa345e7883218313, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -375,12 +375,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: M4
-  damages: 10
+  damage: 1
   fireRate: 20
   isReloadable: 1
   mag_size: 25
-  bulletSpeed: 5
-  spread: 5
+  bulletSpeed: 15
+  spread: 2
+  whatToHit:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!114 &315278829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,7 +397,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectPooled: {fileID: 1167570034033590, guid: a5f609cc63c83104b9ce20185f259d34,
     type: 2}
-  poolSize: 3
+  poolSize: 15
   willGrow: 0
   pooledObjects: []
 --- !u!1 &487578818
@@ -620,6 +623,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -701,6 +705,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 473e3b230b1fb6a4db94fbd1b6fafe86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &610475077
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,8 +726,8 @@ GameObject:
   - component: {fileID: 610475078}
   - component: {fileID: 610475080}
   - component: {fileID: 610475079}
-  - component: {fileID: 610475083}
   - component: {fileID: 610475082}
+  - component: {fileID: 610475083}
   - component: {fileID: 610475081}
   - component: {fileID: 610475084}
   m_Layer: 8
@@ -3688,70 +3703,70 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 610475083}
     m_ColliderPaths:
-    - - X: -260000000
+    - - X: 240000000
+        Y: -60000000
+      - X: 240000000
+        Y: 20000000
+      - X: 230000000
+        Y: 20000000
+      - X: 230000000
+        Y: 10000000
+      - X: 220000000
+        Y: 10000000
+      - X: 220000000
+        Y: 0
+      - X: 110000000
+        Y: 0
+      - X: 110000000
+        Y: 10000000
+      - X: 90000000
+        Y: 10000000
+      - X: 90000000
+        Y: 20000000
+      - X: 70000000
+        Y: 20000000
+      - X: 70000000
+        Y: 30000000
+      - X: 50000000
+        Y: 30000000
+      - X: 50000000
+        Y: 20000000
+      - X: 30000000
+        Y: 20000000
+      - X: 30000000
+        Y: 10000000
+      - X: 10000000
+        Y: 10000000
+      - X: 10000000
+        Y: 0
+      - X: -10000000
+        Y: 0
+      - X: -10000000
+        Y: -10000000
+      - X: -180000000
+        Y: -10000000
+      - X: -180000000
+        Y: -20000000
+      - X: -190000000
+        Y: -20000000
+      - X: -190000000
+        Y: -30000000
+      - X: -200000000
+        Y: -30000000
+      - X: -200000000
+        Y: -20000000
+      - X: -210000000
+        Y: -20000000
+      - X: -210000000
+        Y: -10000000
+      - X: -240000000
+        Y: -10000000
+      - X: -240000000
+        Y: 70000000
+      - X: -260000000
         Y: 70000000
       - X: -260000000
         Y: -60000000
-      - X: 240000000
-        Y: -60000000
-      - X: 240000000
-        Y: 20000000
-      - X: 230000000
-        Y: 20000000
-      - X: 230000000
-        Y: 10000000
-      - X: 220000000
-        Y: 10000000
-      - X: 220000000
-        Y: 0
-      - X: 110000000
-        Y: 0
-      - X: 110000000
-        Y: 10000000
-      - X: 90000000
-        Y: 10000000
-      - X: 90000000
-        Y: 20000000
-      - X: 70000000
-        Y: 20000000
-      - X: 70000000
-        Y: 30000000
-      - X: 50000000
-        Y: 30000000
-      - X: 50000000
-        Y: 20000000
-      - X: 30000000
-        Y: 20000000
-      - X: 30000000
-        Y: 10000000
-      - X: 10000000
-        Y: 10000000
-      - X: 10000000
-        Y: 0
-      - X: -10000000
-        Y: 0
-      - X: -10000000
-        Y: -10000000
-      - X: -180000000
-        Y: -10000000
-      - X: -180000000
-        Y: -20000000
-      - X: -190000000
-        Y: -20000000
-      - X: -190000000
-        Y: -30000000
-      - X: -200000000
-        Y: -30000000
-      - X: -200000000
-        Y: -20000000
-      - X: -210000000
-        Y: -20000000
-      - X: -210000000
-        Y: -10000000
-      - X: -240000000
-        Y: -10000000
-      - X: -240000000
-        Y: 70000000
   m_CompositePaths:
     m_Paths:
     - - {x: 24, y: 2}
@@ -3801,7 +3816,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -3914,7 +3929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6b38ca869b887f44bd33b43fb4c4213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  health: 5
   speed: 160
   groundLayer:
     serializedVersion: 2
@@ -3927,6 +3942,7 @@ MonoBehaviour:
     height: 0.5
   isGrounded: 0
   forwardvector: {x: 0, y: 0}
+  isAlive: 1
   wallDectection:
     serializedVersion: 2
     x: 0.4
@@ -4314,6 +4330,7 @@ MonoBehaviour:
     height: 0.37
   isGrounded: 0
   forwardvector: {x: 0, y: 0}
+  isAlive: 1
   acc_t: {fileID: 504389785}
   acc_threshold: 0.2
 --- !u!95 &1410344585
@@ -4475,7 +4492,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 20
   m_Sprite: {fileID: 21300000, guid: 6e76d83733bb3454a92c2a29964ebd03, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
