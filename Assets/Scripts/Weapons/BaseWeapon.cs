@@ -6,7 +6,7 @@ using UnityEngine;
 public class BaseWeapon : MonoBehaviour {
 
 	public String title;
-	public float damages;
+	public float damage;
 	public float fireRate; // Bullet per second
 
 	public bool isReloadable;

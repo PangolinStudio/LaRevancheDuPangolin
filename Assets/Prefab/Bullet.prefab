@@ -20,8 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4375690011195720}
   - component: {fileID: 212966858047018154}
-  - component: {fileID: 61829898536280218}
   - component: {fileID: 50842920083120522}
+  - component: {fileID: 61829898536280218}
+  - component: {fileID: 114137546621666494}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -36,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1167570034033590}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -4.010695, y: -0.395, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -87,6 +88,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.15533924, y: 0.032321244}
   m_EdgeRadius: 0
+--- !u!114 &114137546621666494
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1167570034033590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd1c9c9dbd1e33247bf5b17d70cd2de0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  whatToHit:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!212 &212966858047018154
 SpriteRenderer:
   m_ObjectHideFlags: 1

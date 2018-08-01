@@ -5,6 +5,7 @@ using UnityEngine;
 public class Gun : BaseWeapon {
 	public float bulletSpeed;
 	public float spread;
+	public LayerMask whatToHit;
 
 	private Transform firePoint;
 	private Entity parent;
@@ -37,6 +38,10 @@ public class Gun : BaseWeapon {
 		GameObject bullet = bullets.GetPooledObject();
 		if (bullet == null) return;
 		
+		// Paramétrage du projectile
+		bullet.GetComponent<BulletController>().damage = damage;
+		bullet.GetComponent<BulletController>().whatToHit = whatToHit;
+
 		// Rotation aléatoire du projectile
 		Quaternion rot = firePoint.rotation;
 		rot.z = Random.Range(-0.1f, 0.1f);

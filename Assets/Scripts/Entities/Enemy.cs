@@ -40,6 +40,9 @@ public class Enemy : Entity {
 			Flip(true);
 
 		brain.Update(Time.deltaTime);
+
+		if (!isAlive)
+			Destroy(this.gameObject);
 	}
 
 	public void Idle()

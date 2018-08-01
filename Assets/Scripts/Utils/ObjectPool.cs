@@ -39,14 +39,7 @@ public class ObjectPool : MonoBehaviour {
 			}
 		}
 
-		if (candidate != null)
-		{
-			pooledObjects.Remove(candidate);
-			pooledObjects.Add(candidate);
-			candidate.SetActive(true);
-			return candidate;
-		}
-		else 
+		if (candidate == null)
 		{
 			// Si on en a pas trouvé, on peut essayer d'en créer un
 			if (willGrow)
@@ -60,13 +53,18 @@ public class ObjectPool : MonoBehaviour {
 				if (pooledObjects.Count >= 1)
 				{
 					candidate = pooledObjects[0];
-					pooledObjects.Remove(candidate);
-					pooledObjects.Add(candidate);
-					candidate.SetActive(true);
-					return candidate;
 				}
-				return null;
 			}
 		}
+
+		if (candidate != null)
+		{
+			pooledObjects.Remove(candidate);
+			pooledObjects.Add(candidate);
+			candidate.SetActive(true);
+			return candidate;
+		}
+
+		return null;
 	}
 }

@@ -10,6 +10,7 @@ public class Entity : MonoBehaviour {
 	public Rect groundDetection;
 	public bool isGrounded = false;
 	public Vector2 forwardvector;
+	public bool isAlive = true;
 
 	protected Rigidbody2D rb;
 	protected bool isFacingRight = true;
@@ -57,6 +58,14 @@ public class Entity : MonoBehaviour {
 		{
 			transform.localRotation = Quaternion.Euler(0, 180, 0);
 			forwardvector = new Vector2(-1, 0);
+		}
+	}
+
+	public void TakeDamage(float damage) {
+		health -= damage;
+		if (health <= 0)
+		{
+			isAlive = false;
 		}
 	}
 
