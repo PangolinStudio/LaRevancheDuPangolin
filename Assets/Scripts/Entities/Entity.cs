@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour {
 
+	public float maxHealth;
 	public float health;
 	public float speed;
 	public LayerMask groundLayer;
@@ -24,7 +25,8 @@ public class Entity : MonoBehaviour {
 	void Awake () {
 		rb = GetComponent<Rigidbody2D>();
 		forwardvector = new Vector2(1, 0);
-		// On récupère les points de la zone de détection du sol
+		
+		health = maxHealth;
 	}
 	// Update is called once per frame
 	protected void Update () {

@@ -14,7 +14,6 @@ public class Enemy : Entity {
 	private Vector2 top_left_wall;
 	private Vector2 bottom_right_wall;
 	private float idleTime;
-	private float init_health;
 	private float fleeDirection;
 
 	// Use this for initialization
@@ -23,7 +22,6 @@ public class Enemy : Entity {
 		brain.Add(Wander);
 
 		idleTime = -1;
-		init_health = health;
 	}
 	
 	// Update is called once per frame
@@ -103,7 +101,7 @@ public class Enemy : Entity {
 		{
 			brain.Pop();
 		}
-		else if (health <= 20/100 * init_health)
+		else if (health <= 20/100 * maxHealth)
 		{
 			brain.Pop();
 			fleeDirection = Mathf.Sign(transform.position.x - target.position.x);
